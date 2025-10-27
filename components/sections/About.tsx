@@ -1,34 +1,34 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Code2, Rocket, Users, Zap } from "lucide-react";
+import { Brain, Code2, Lightbulb, Zap } from "lucide-react";
 
 const features = [
   {
+    icon: Brain,
+    title: "AI-Powered",
+    description: "J'intègre l'IA dans mon workflow pour maximiser productivité et qualité du code.",
+  },
+  {
     icon: Code2,
-    title: "Code de qualité",
-    description: "J'écris du code propre, maintenable et optimisé en suivant les meilleures pratiques de l'industrie.",
-  },
-  {
-    icon: Rocket,
-    title: "Performance",
-    description: "Création d'applications rapides et performantes avec une attention particulière à l'expérience utilisateur.",
-  },
-  {
-    icon: Users,
-    title: "Collaboration",
-    description: "Travail d'équipe efficace avec une communication claire et une approche agile du développement.",
+    title: "Polyvalent",
+    description: "Full Stack : Frontend, Backend, Databases. Je maîtrise toute la chaîne de développement.",
   },
   {
     icon: Zap,
-    title: "Innovation",
-    description: "Toujours à l'affût des dernières technologies pour proposer des solutions modernes et innovantes.",
+    title: "Autonome",
+    description: "Capable de gérer des projets de A à Z avec initiative et sens des responsabilités.",
+  },
+  {
+    icon: Lightbulb,
+    title: "Adaptable",
+    description: "Dans une ère de rôles multiples, je m'adapte rapidement aux nouvelles technologies.",
   },
 ];
 
 export function About() {
   return (
-    <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-dark-900">
+    <section id="about" className="py-20 px-8 sm:px-12 lg:px-16 bg-gray-50 dark:bg-dark-900">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -37,11 +37,11 @@ export function About() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl sm:text-5xl font-bold mb-4">
-            À propos de <span className="gradient-text">moi</span>
+          <h2 className="text-3xl sm:text-4xl font-bold mb-3">
+            Qui suis-je <span className="gradient-text">vraiment</span> ?
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Développeur passionné avec une soif d&apos;apprendre et de créer
+          <p className="text-base text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+            Plus qu&apos;un développeur, un créateur de solutions
           </p>
         </motion.div>
 
@@ -53,25 +53,27 @@ export function About() {
             transition={{ duration: 0.6 }}
             className="space-y-6"
           >
-            <div className="prose prose-lg dark:prose-invert">
-              <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                En tant que <strong className="text-primary-500">développeur Full Stack junior</strong>, 
-                je suis passionné par la création d&apos;applications web modernes et performantes. 
-                Mon parcours m&apos;a permis de maîtriser un large éventail de technologies, 
-                du front-end au back-end, en passant par la gestion de bases de données.
+            <div className="space-y-4">
+              <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-base">
+                Je suis un <strong className="text-primary-500">AI Coder</strong> et 
+                <strong className="text-primary-500"> développeur Full Stack junior</strong> qui 
+                ne se contente pas d'écrire du code — je conçois des expériences. 
+                <span className="font-semibold"> Polyvalent</span>, je navigue aisément entre 
+                React, Vue.js, Python, Django, PHP et Laravel.
               </p>
-              <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                Je me spécialise dans le développement d&apos;interfaces utilisateur réactives avec 
-                <strong className="text-primary-500"> React</strong> et 
-                <strong className="text-primary-500"> Vue.js</strong>, 
-                et dans la création d&apos;APIs robustes avec 
-                <strong className="text-primary-500"> Python/Django</strong> et 
-                <strong className="text-primary-500"> PHP/Laravel</strong>.
+              <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-base">
+                <span className="font-semibold">Autonome</span>, je prends en charge des projets 
+                de bout en bout, de la conception à la mise en production. Dans cette ère où 
+                les rôles se multiplient et se transforment, je m'adapte rapidement et 
+                j'embrasse les nouvelles technologies avec enthousiasme.
               </p>
-              <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                Mon objectif est de continuer à développer mes compétences tout en contribuant 
-                à des projets innovants qui ont un impact réel. Je suis constamment à la recherche 
-                de nouveaux défis et d&apos;opportunités d&apos;apprentissage.
+              <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-base">
+                Mon approche ? <span className="italic text-primary-500">
+                &quot;Fusionner l'intelligence humaine avec la puissance de l'IA&quot;</span> pour 
+                créer des solutions qui ne sont pas seulement fonctionnelles, mais 
+                <strong> exceptionnelles</strong>. Je ne suis pas qu'un codeur — je suis un 
+                <strong className="text-primary-500"> solutionneur de problèmes</strong> qui 
+                transforme les défis en opportunités.
               </p>
             </div>
           </motion.div>
@@ -90,12 +92,12 @@ export function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="p-6 bg-white dark:bg-dark-800 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 group"
+                className="p-5 bg-white dark:bg-dark-800 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 group"
               >
-                <div className="w-12 h-12 bg-gradient-to-r from-primary-500 to-purple-500 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                  <feature.icon className="w-6 h-6 text-white" />
+                <div className="w-11 h-11 bg-gradient-to-r from-primary-500 to-purple-500 rounded-lg flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                  <feature.icon className="w-5 h-5 text-white" />
                 </div>
-                <h3 className="text-lg font-semibold mb-2 text-gray-900 dark:text-white">
+                <h3 className="text-base font-semibold mb-2 text-gray-900 dark:text-white">
                   {feature.title}
                 </h3>
                 <p className="text-sm text-gray-600 dark:text-gray-400">
@@ -126,9 +128,9 @@ export function About() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="text-center p-6 bg-white dark:bg-dark-800 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105"
+              className="text-center p-5 bg-white dark:bg-dark-800 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105"
             >
-              <div className="text-4xl font-bold gradient-text mb-2">
+              <div className="text-3xl font-bold gradient-text mb-2">
                 {stat.number}
               </div>
               <div className="text-gray-600 dark:text-gray-400 font-medium">

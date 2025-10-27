@@ -25,7 +25,7 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="py-20 px-8 sm:px-12 lg:px-16">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -34,11 +34,11 @@ export function Contact() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl sm:text-5xl font-bold mb-4">
-            Contactez-<span className="gradient-text">moi</span>
+          <h2 className="text-3xl sm:text-4xl font-bold mb-3">
+            Parlons de votre <span className="gradient-text">projet</span>
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Une question ? Un projet ? N&apos;hésitez pas à me contacter, je serais ravi d&apos;échanger avec vous
+          <p className="text-base text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+            Disponible pour collaborations et opportunités professionnelles
           </p>
         </motion.div>
 
@@ -52,11 +52,11 @@ export function Contact() {
             className="space-y-8"
           >
             <div>
-              <h3 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">
-                Informations de contact
+              <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">
+                Restons connectés
               </h3>
-              <p className="text-gray-600 dark:text-gray-400 mb-8">
-                Je suis disponible pour discuter de vos projets, opportunités de collaboration ou simplement pour échanger sur le développement web.
+              <p className="text-sm text-gray-600 dark:text-gray-400 mb-6">
+                Ouvert aux opportunités, collaborations et discussions techniques.
               </p>
             </div>
 
@@ -66,16 +66,16 @@ export function Contact() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.2 }}
-                className="flex items-start gap-4 p-4 bg-white dark:bg-dark-800 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105"
+                className="flex items-start gap-4 p-4 bg-white dark:bg-dark-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105"
               >
-                <div className="p-3 bg-gradient-to-r from-primary-500 to-purple-500 rounded-lg">
-                  <Mail className="w-6 h-6 text-white" />
+                <div className="p-2.5 bg-gradient-to-r from-primary-500 to-purple-500 rounded-lg">
+                  <Mail className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900 dark:text-white mb-1">Email</h4>
+                  <h4 className="text-sm font-semibold text-gray-900 dark:text-white mb-1">Email</h4>
                   <a
                     href="mailto:votre.email@example.com"
-                    className="text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors"
+                    className="text-sm text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors"
                   >
                     votre.email@example.com
                   </a>
@@ -87,16 +87,16 @@ export function Contact() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.3 }}
-                className="flex items-start gap-4 p-4 bg-white dark:bg-dark-800 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105"
+                className="flex items-start gap-4 p-4 bg-white dark:bg-dark-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105"
               >
-                <div className="p-3 bg-gradient-to-r from-green-500 to-green-600 rounded-lg">
-                  <Phone className="w-6 h-6 text-white" />
+                <div className="p-2.5 bg-gradient-to-r from-green-500 to-green-600 rounded-lg">
+                  <Phone className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900 dark:text-white mb-1">Téléphone</h4>
+                  <h4 className="text-sm font-semibold text-gray-900 dark:text-white mb-1">Téléphone</h4>
                   <a
                     href="tel:+33612345678"
-                    className="text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors"
+                    className="text-sm text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors"
                   >
                     +33 6 12 34 56 78
                   </a>
@@ -108,14 +108,14 @@ export function Contact() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.4 }}
-                className="flex items-start gap-4 p-4 bg-white dark:bg-dark-800 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105"
+                className="flex items-start gap-4 p-4 bg-white dark:bg-dark-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105"
               >
-                <div className="p-3 bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg">
-                  <MapPin className="w-6 h-6 text-white" />
+                <div className="p-2.5 bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg">
+                  <MapPin className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900 dark:text-white mb-1">Localisation</h4>
-                  <p className="text-gray-600 dark:text-gray-400">
+                  <h4 className="text-sm font-semibold text-gray-900 dark:text-white mb-1">Localisation</h4>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">
                     Paris, France
                   </p>
                 </div>
@@ -128,10 +128,10 @@ export function Contact() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.5 }}
-              className="p-6 bg-gradient-to-r from-primary-500 to-purple-500 rounded-2xl text-white"
+              className="p-5 bg-gradient-to-r from-primary-500 to-purple-500 rounded-xl text-white"
             >
-              <h4 className="font-bold text-xl mb-2">Disponibilité</h4>
-              <p className="text-white/90">
+              <h4 className="font-bold text-lg mb-2">Disponibilité</h4>
+              <p className="text-sm text-white/90">
                 Actuellement disponible pour des missions freelance et des opportunités d&apos;emploi en CDI.
               </p>
             </motion.div>
@@ -156,7 +156,7 @@ export function Contact() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-white dark:bg-dark-800 border border-gray-300 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300 text-gray-900 dark:text-white"
+                  className="w-full px-4 py-2.5 text-sm bg-white dark:bg-dark-800 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300 text-gray-900 dark:text-white"
                   placeholder="Votre nom"
                 />
               </div>
@@ -172,7 +172,7 @@ export function Contact() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-white dark:bg-dark-800 border border-gray-300 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300 text-gray-900 dark:text-white"
+                  className="w-full px-4 py-2.5 text-sm bg-white dark:bg-dark-800 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300 text-gray-900 dark:text-white"
                   placeholder="votre.email@example.com"
                 />
               </div>
@@ -188,7 +188,7 @@ export function Contact() {
                   value={formData.subject}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-white dark:bg-dark-800 border border-gray-300 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300 text-gray-900 dark:text-white"
+                  className="w-full px-4 py-2.5 text-sm bg-white dark:bg-dark-800 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300 text-gray-900 dark:text-white"
                   placeholder="Sujet de votre message"
                 />
               </div>
@@ -204,7 +204,7 @@ export function Contact() {
                   onChange={handleChange}
                   required
                   rows={6}
-                  className="w-full px-4 py-3 bg-white dark:bg-dark-800 border border-gray-300 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300 text-gray-900 dark:text-white resize-none"
+                  className="w-full px-4 py-2.5 text-sm bg-white dark:bg-dark-800 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300 text-gray-900 dark:text-white resize-none"
                   placeholder="Votre message..."
                 />
               </div>
@@ -213,7 +213,7 @@ export function Contact() {
                 type="submit"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="w-full px-8 py-4 bg-gradient-to-r from-primary-500 to-purple-500 hover:from-primary-600 hover:to-purple-600 text-white font-semibold rounded-xl transition-all duration-300 hover:shadow-2xl hover:shadow-primary-500/50 flex items-center justify-center gap-2"
+                className="w-full px-6 py-3 bg-gradient-to-r from-primary-500 to-purple-500 hover:from-primary-600 hover:to-purple-600 text-white text-sm font-semibold rounded-lg transition-all duration-300 hover:shadow-xl hover:shadow-primary-500/30 flex items-center justify-center gap-2"
               >
                 <Send className="w-5 h-5" />
                 Envoyer le message

@@ -1,14 +1,30 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Space_Grotesk, Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 
-const inter = Inter({ subsets: ["latin"] });
+const spaceGrotesk = Space_Grotesk({ 
+  subsets: ["latin"],
+  variable: "--font-space-grotesk",
+  display: "swap",
+});
+
+const inter = Inter({ 
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
-  title: "Portfolio | Développeur Full Stack",
-  description: "Portfolio professionnel d'un développeur Full Stack spécialisé en React, Next.js, Vue.js, Python, Django, PHP, Laravel et bases de données.",
-  keywords: ["développeur", "full stack", "react", "nextjs", "vue", "python", "django", "php", "laravel"],
+  title: "AI Coder | Full Stack Developer Portfolio",
+  description: "Portfolio d'un AI Coder et développeur Full Stack junior polyvalent. Maîtrise de React, Next.js, Vue.js, Python, Django, PHP, Laravel. Fusion de l'IA et du développement moderne.",
+  keywords: ["ai coder", "développeur", "full stack", "react", "nextjs", "vue", "python", "django", "php", "laravel", "intelligence artificielle"],
+  authors: [{ name: "Votre Nom" }],
+  openGraph: {
+    title: "AI Coder | Full Stack Developer",
+    description: "Portfolio professionnel - Fusion de l'IA et du développement web moderne",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -18,7 +34,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr" suppressHydrationWarning>
-      <body className={inter.className}>
+      <body className={`${inter.variable} ${spaceGrotesk.variable} font-sans antialiased`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"

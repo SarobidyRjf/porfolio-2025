@@ -57,7 +57,7 @@ const projects = [
 
 export function Projects() {
   return (
-    <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-dark-900">
+    <section id="projects" className="py-20 px-8 sm:px-12 lg:px-16 bg-gray-50 dark:bg-dark-900">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -66,15 +66,15 @@ export function Projects() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl sm:text-5xl font-bold mb-4">
-            Mes <span className="gradient-text">Projets</span>
+          <h2 className="text-3xl sm:text-4xl font-bold mb-3">
+            Ce que j&apos;ai <span className="gradient-text">créé</span>
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Une sélection de projets qui démontrent mes compétences et ma passion pour le développement
+          <p className="text-base text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+            Projets qui illustrent ma maîtrise technique et ma créativité
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
@@ -82,7 +82,7 @@ export function Projects() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="group bg-white dark:bg-dark-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105"
+              className="group bg-white dark:bg-dark-800 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105"
             >
               {/* Image */}
               <div className="relative h-48 overflow-hidden">
@@ -118,11 +118,11 @@ export function Projects() {
               </div>
 
               {/* Content */}
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white group-hover:text-primary-500 transition-colors">
+              <div className="p-5">
+                <h3 className="text-lg font-bold mb-2 text-gray-900 dark:text-white group-hover:text-primary-500 transition-colors">
                   {project.title}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-400 mb-4 line-clamp-3">
+                <p className="text-sm text-gray-600 dark:text-gray-400 mb-4 line-clamp-3">
                   {project.description}
                 </p>
 
@@ -154,7 +154,7 @@ export function Projects() {
             href="https://github.com/votre-username"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-primary-500 to-purple-500 hover:from-primary-600 hover:to-purple-600 text-white font-semibold rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-primary-500/50"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary-500 to-purple-500 hover:from-primary-600 hover:to-purple-600 text-white text-sm font-semibold rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-primary-500/30"
           >
             <Github className="w-5 h-5" />
             Voir plus sur GitHub
