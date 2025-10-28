@@ -57,7 +57,7 @@ const projects = [
 
 export function Projects() {
   return (
-    <section id="projects" className="py-20 px-8 sm:px-12 lg:px-16 bg-gray-50 dark:bg-dark-900">
+    <section id="projects" className="py-16 px-6 sm:px-10 lg:px-14 bg-gray-50 dark:bg-dark-900">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -66,10 +66,10 @@ export function Projects() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold mb-3">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-2">
             Ce que j&apos;ai <span className="gradient-text">créé</span>
           </h2>
-          <p className="text-base text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          <p className="text-sm text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
             Projets qui illustrent ma maîtrise technique et ma créativité
           </p>
         </motion.div>
@@ -100,38 +100,38 @@ export function Projects() {
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-3 bg-white dark:bg-dark-800 rounded-full hover:bg-primary-500 hover:text-white transition-colors duration-300"
+                    className="p-2 bg-white dark:bg-dark-800 rounded-full hover:bg-primary-500 hover:text-white transition-colors duration-300"
                     onClick={(e) => e.stopPropagation()}
                   >
-                    <Github className="w-5 h-5" />
+                    <Github className="w-4 h-4" />
                   </a>
                   <a
                     href={project.demo}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-3 bg-white dark:bg-dark-800 rounded-full hover:bg-primary-500 hover:text-white transition-colors duration-300"
+                    className="p-2 bg-white dark:bg-dark-800 rounded-full hover:bg-primary-500 hover:text-white transition-colors duration-300"
                     onClick={(e) => e.stopPropagation()}
                   >
-                    <ExternalLink className="w-5 h-5" />
+                    <ExternalLink className="w-4 h-4" />
                   </a>
                 </div>
               </div>
 
               {/* Content */}
-              <div className="p-5">
-                <h3 className="text-lg font-bold mb-2 text-gray-900 dark:text-white group-hover:text-primary-500 transition-colors">
+              <div className="p-4">
+                <h3 className="text-base font-bold mb-1.5 text-gray-900 dark:text-white group-hover:text-primary-500 transition-colors">
                   {project.title}
                 </h3>
-                <p className="text-sm text-gray-600 dark:text-gray-400 mb-4 line-clamp-3">
+                <p className="text-xs text-gray-600 dark:text-gray-400 mb-3 line-clamp-3">
                   {project.description}
                 </p>
 
                 {/* Tags */}
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-1.5">
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-3 py-1 text-xs font-medium bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 rounded-full"
+                      className="px-2 py-0.5 text-[10px] font-medium bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 rounded-full"
                     >
                       {tag}
                     </span>
@@ -154,9 +154,9 @@ export function Projects() {
             href="https://github.com/votre-username"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary-500 to-purple-500 hover:from-primary-600 hover:to-purple-600 text-white text-sm font-semibold rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-primary-500/30"
+            className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-primary-500 to-purple-500 hover:from-primary-600 hover:to-purple-600 text-white text-xs font-semibold rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-primary-500/30"
           >
-            <Github className="w-5 h-5" />
+            <Github className="w-4 h-4" />
             Voir plus sur GitHub
           </a>
         </motion.div>

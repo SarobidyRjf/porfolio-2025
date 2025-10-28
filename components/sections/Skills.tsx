@@ -6,6 +6,7 @@ import {
   SiVuedotjs, 
   SiNextdotjs, 
   SiJavascript, 
+  SiTypescript,
   SiTailwindcss,
   SiPython, 
   SiDjango, 
@@ -37,6 +38,7 @@ const skillCategories: { category: string; skills: Skill[] }[] = [
       { name: "Vue.js", icon: SiVuedotjs, color: "#4FC08D", description: "Framework progressif" },
       { name: "Next.js", icon: SiNextdotjs, color: "#000000", description: "React framework" },
       { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E", description: "Langage web" },
+      { name: "TypeScript", icon: SiTypescript, color: "#3178C6", description: "JS typé" },
       { name: "Tailwind", icon: SiTailwindcss, color: "#06B6D4", description: "CSS utility" },
     ],
   },
@@ -58,7 +60,7 @@ const skillCategories: { category: string; skills: Skill[] }[] = [
       { name: "Git", icon: SiGit, color: "#F05032", description: "Version control" },
       { name: "Docker", icon: SiDocker, color: "#2496ED", description: "Conteneurisation" },
       { name: "Linux", icon: SiLinux, color: "#FCC624", description: "Système Unix" },
-      { name: "VS Code", icon: Code2 as any, color: "#007ACC", description: "Éditeur de code" },
+      { name: "Cursor", icon: Code2 as any, color: "#000000", description: "AI Code Editor" },
       { name: "Figma", icon: SiFigma, color: "#F24E1E", description: "Design UI/UX" },
     ],
   },
@@ -66,7 +68,7 @@ const skillCategories: { category: string; skills: Skill[] }[] = [
 
 export function Skills() {
   return (
-    <section id="skills" className="py-20 px-8 sm:px-12 lg:px-16">
+    <section id="skills" className="py-16 px-6 sm:px-10 lg:px-14">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -75,10 +77,10 @@ export function Skills() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold mb-3">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-2">
             Je <span className="gradient-text">dev</span> en :
           </h2>
-          <p className="text-base text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          <p className="text-sm text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
             Stack technique moderne pour des solutions web performantes
           </p>
         </motion.div>
@@ -91,12 +93,12 @@ export function Skills() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: categoryIndex * 0.15 }}
-              className="bg-white/50 dark:bg-dark-800/50 backdrop-blur-sm rounded-xl p-6 border border-gray-200 dark:border-gray-700 hover:border-primary-500 dark:hover:border-primary-500 transition-all duration-300"
+              className="bg-white/50 dark:bg-dark-800/50 backdrop-blur-sm rounded-xl p-4 border border-gray-200 dark:border-gray-700 hover:border-primary-500 dark:hover:border-primary-500 transition-all duration-300"
             >
-              <h3 className="text-xl font-bold mb-6 text-gray-900 dark:text-white">
+              <h3 className="text-base font-bold mb-4 text-gray-900 dark:text-white">
                 {category.category}
               </h3>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-3">
                 {category.skills.map((skill, skillIndex) => (
                   <motion.div
                     key={skill.name}
@@ -105,13 +107,13 @@ export function Skills() {
                     viewport={{ once: true }}
                     whileHover={{ scale: 1.05, y: -5 }}
                     transition={{ delay: categoryIndex * 0.15 + skillIndex * 0.05 }}
-                    className="group relative flex flex-col items-center justify-center p-4 bg-white dark:bg-dark-900 rounded-lg border border-gray-100 dark:border-gray-800 hover:border-primary-500 dark:hover:border-primary-500 transition-all duration-300 cursor-pointer"
+                    className="group relative flex flex-col items-center justify-center p-3 bg-white dark:bg-dark-900 rounded-lg border border-gray-100 dark:border-gray-800 hover:border-primary-500 dark:hover:border-primary-500 transition-all duration-300 cursor-pointer"
                   >
                     <skill.icon 
-                      className="w-10 h-10 mb-2 transition-transform duration-300 group-hover:scale-110" 
+                      className="w-7 h-7 mb-1.5 transition-transform duration-300 group-hover:scale-110" 
                       style={{ color: skill.color }}
                     />
-                    <span className="text-xs font-semibold text-gray-700 dark:text-gray-300 text-center">
+                    <span className="text-[10px] font-semibold text-gray-700 dark:text-gray-300 text-center">
                       {skill.name}
                     </span>
                     
@@ -135,10 +137,10 @@ export function Skills() {
           transition={{ delay: 0.6 }}
           className="mt-12"
         >
-          <h3 className="text-xl font-bold text-center mb-6 text-gray-900 dark:text-white">
+          <h3 className="text-base font-bold text-center mb-4 text-gray-900 dark:text-white">
             Compétences transversales
           </h3>
-          <div className="flex flex-wrap justify-center gap-3">
+          <div className="flex flex-wrap justify-center gap-2">
             {[
               "REST APIs",
               "Responsive Design",
@@ -156,7 +158,7 @@ export function Skills() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.05 }}
                 whileHover={{ scale: 1.05 }}
-                className="px-4 py-2 text-sm bg-gradient-to-r from-primary-500 to-purple-500 text-white font-medium rounded-full shadow-md hover:shadow-lg hover:shadow-primary-500/30 transition-all duration-300 cursor-default"
+                className="px-3 py-1.5 text-xs bg-gradient-to-r from-primary-500 to-purple-500 text-white font-medium rounded-full shadow-md hover:shadow-lg hover:shadow-primary-500/30 transition-all duration-300 cursor-default"
               >
                 {skill}
               </motion.span>
