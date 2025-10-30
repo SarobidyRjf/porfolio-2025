@@ -46,12 +46,12 @@ export function ThemeToggle() {
     <div className="relative theme-toggle-wrapper">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="relative p-2.5 rounded-lg bg-gradient-to-r from-primary-500 to-purple-500 hover:from-primary-600 hover:to-purple-600 transition-all duration-300 hover:scale-105 group flex items-center gap-1.5"
+        className="relative p-2.5 rounded-lg bg-gradient-to-r from-blue-500 via-blue-600 to-cyan-500 hover:from-blue-600 hover:via-blue-700 hover:to-cyan-600 transition-all duration-300 hover:scale-105 group flex items-center gap-1.5 shadow-lg shadow-blue-500/30"
         aria-label="Toggle theme menu"
       >
         <CurrentIcon className="w-4 h-4 text-white" />
         <ChevronDown className={`w-3 h-3 text-white transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
-        <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-primary-500 to-purple-500 blur-lg opacity-50 group-hover:opacity-75 transition-opacity -z-10"></div>
+        <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-blue-500 via-blue-600 to-cyan-500 blur-lg opacity-50 group-hover:opacity-75 transition-opacity -z-10"></div>
       </button>
 
       <AnimatePresence>

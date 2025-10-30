@@ -57,7 +57,7 @@ const projects = [
 
 export function Projects() {
   return (
-    <section id="projects" className="py-16 px-6 sm:px-10 lg:px-14 bg-gray-50 dark:bg-dark-900">
+    <section id="projects" className="py-16 px-6 sm:px-10 lg:px-14 relative">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -82,7 +82,7 @@ export function Projects() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="group bg-white dark:bg-dark-800 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105"
+              className="group vintage-card rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105"
             >
               {/* Image */}
               <div className="relative h-48 overflow-hidden">
@@ -154,7 +154,7 @@ export function Projects() {
             href="https://github.com/votre-username"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-primary-500 to-purple-500 hover:from-primary-600 hover:to-purple-600 text-white text-xs font-semibold rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-primary-500/30"
+            className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white text-xs font-semibold rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-blue-500/30"
           >
             <Github className="w-4 h-4" />
             Voir plus sur GitHub

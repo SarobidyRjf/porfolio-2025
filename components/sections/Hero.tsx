@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowDown, Github, Linkedin, Mail, MessageCircle } from "lucide-react";
+import { ArrowDown, Github, Linkedin, Mail, MessageCircle, MessageSquare } from "lucide-react";
 import Image from "next/image";
 
 export function Hero() {
@@ -59,7 +59,7 @@ export function Hero() {
                 href="https://github.com/votre-username"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative p-2 bg-gradient-to-r from-gray-800 to-gray-900 hover:from-gray-700 hover:to-gray-800 text-white rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                className="group relative p-2 bg-gradient-to-r from-gray-600 to-gray-700 hover:from-gray-500 hover:to-gray-600 text-white rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg"
               >
                 <Github className="w-4 h-4" />
                 <span className="absolute -top-10 left-1/2 -translate-x-1/2 bg-gray-900 text-white px-3 py-1 rounded-lg text-sm opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
@@ -71,11 +71,23 @@ export function Hero() {
                 href="https://linkedin.com/in/votre-profil"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative p-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                className="group relative p-2 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-400 hover:to-blue-500 text-white rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg"
               >
                 <Linkedin className="w-4 h-4" />
                 <span className="absolute -top-10 left-1/2 -translate-x-1/2 bg-gray-900 text-white px-3 py-1 rounded-lg text-sm opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
                   LinkedIn
+                </span>
+              </a>
+
+              <a
+                href="https://discord.com/users/votre-id"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative p-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg"
+              >
+                <MessageSquare className="w-4 h-4" />
+                <span className="absolute -top-10 left-1/2 -translate-x-1/2 bg-gray-900 text-white px-3 py-1 rounded-lg text-sm opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                  Discord
                 </span>
               </a>
 
@@ -93,7 +105,7 @@ export function Hero() {
                 href="https://wa.me/33612345678"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative p-2 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-400 hover:to-green-500 text-white rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                className="group relative p-2 bg-gradient-to-r from-gray-500 to-gray-600 hover:from-gray-400 hover:to-gray-500 text-white rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg"
               >
                 <MessageCircle className="w-4 h-4" />
                 <span className="absolute -top-10 left-1/2 -translate-x-1/2 bg-gray-900 text-white px-3 py-1 rounded-lg text-sm opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
@@ -111,13 +123,13 @@ export function Hero() {
             >
               <a
                 href="#projects"
-                className="px-5 py-2.5 bg-gradient-to-r from-primary-500 to-purple-500 hover:from-primary-600 hover:to-purple-600 text-white text-xs font-semibold rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-primary-500/30"
+                className="px-5 py-2.5 bg-blue-500 hover:bg-blue-600 text-white text-xs font-semibold rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-blue-500/30"
               >
                 Voir mes projets
               </a>
               <a
                 href="#contact"
-                className="px-5 py-2.5 bg-white dark:bg-dark-800 border-2 border-primary-500 text-primary-500 dark:text-primary-400 text-xs font-semibold rounded-lg transition-all duration-300 hover:scale-105 hover:bg-primary-50 dark:hover:bg-dark-700"
+                className="px-5 py-2.5 border-2 border-gray-400 text-gray-700 dark:text-gray-300 hover:bg-gray-400 hover:text-white text-xs font-semibold rounded-lg transition-all duration-300 hover:scale-105"
               >
                 Me contacter
               </a>
@@ -129,26 +141,27 @@ export function Hero() {
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="relative"
+            className="relative hidden md:block"
           >
             <div className="relative w-full aspect-square max-w-xs mx-auto">
               {/* Animated border */}
-              <div className="absolute inset-0 bg-gradient-to-r from-primary-500 via-purple-500 to-pink-500 rounded-full animate-gradient blur-2xl opacity-30"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 rounded-full animate-gradient blur-2xl opacity-30"></div>
               
               {/* Image container */}
               <div className="relative w-full h-full rounded-full overflow-hidden border-2 border-white dark:border-dark-800 shadow-xl animate-float">
                 <Image
-                  src="/luffy.jpg"
-                  alt="Profile"
+                  src="/nika.png"
+                  alt="Profile - Luffy Gear 5 Nika"
                   fill
-                  className="object-cover"
+                  className="object-cover object-center"
                   priority
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
               </div>
 
               {/* Decorative elements */}
-              <div className="absolute -top-4 -right-4 w-20 h-20 bg-primary-500 rounded-full blur-2xl opacity-40 animate-pulse"></div>
-              <div className="absolute -bottom-4 -left-4 w-24 h-24 bg-purple-500 rounded-full blur-2xl opacity-40 animate-pulse" style={{ animationDelay: '1s' }}></div>
+              <div className="absolute -top-4 -right-4 w-20 h-20 bg-blue-500 rounded-full blur-2xl opacity-40 animate-pulse"></div>
+              <div className="absolute -bottom-4 -left-4 w-24 h-24 bg-blue-600 rounded-full blur-2xl opacity-40 animate-pulse" style={{ animationDelay: '1s' }}></div>
             </div>
           </motion.div>
         </div>

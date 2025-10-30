@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
+import Image from "next/image";
 
 const navItems = [
   { name: "Accueil", href: "#home" },
@@ -31,7 +32,7 @@ export function Navigation() {
       animate={{ y: 0 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-white/80 dark:bg-dark-950/80 backdrop-blur-lg shadow-lg"
+          ? "bg-white/90 dark:bg-black/60 backdrop-blur-lg shadow-lg border-b border-gray-200 dark:border-white/10"
           : "bg-transparent"
       }`}
     >
@@ -53,7 +54,7 @@ export function Navigation() {
               <motion.a
                 key={item.name}
                 href={item.href}
-                className="text-sm text-gray-700 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400 transition-colors font-medium"
+                className="text-sm text-gray-900 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400 transition-colors font-medium"
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
@@ -66,11 +67,27 @@ export function Navigation() {
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden flex items-center space-x-4">
+          <div className="md:hidden flex items-center space-x-3">
+            {/* Profile Image - Mobile/Tablet only */}
+            <motion.a
+              href="#home"
+              className="relative w-9 h-9 rounded-full overflow-hidden border-2 border-blue-500 shadow-lg"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Image
+                src="/nika.png"
+                alt="Profile - Luffy Gear 5 Nika"
+                fill
+                className="object-cover object-center"
+                priority
+                sizes="36px"
+              />
+            </motion.a>
             <ThemeToggle />
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-700 dark:text-gray-300 hover:text-primary-500 transition-colors"
+              className="text-gray-900 dark:text-gray-300 hover:text-primary-500 transition-colors"
               aria-label="Toggle menu"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -86,14 +103,14 @@ export function Navigation() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white dark:bg-dark-900 border-t border-gray-200 dark:border-gray-800"
+            className="md:hidden bg-white/95 dark:bg-black/80 backdrop-blur-lg border-t border-gray-200 dark:border-white/10"
           >
             <div className="px-4 py-6 space-y-4">
               {navItems.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
-                  className="block text-sm text-gray-700 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400 transition-colors font-medium py-2"
+                  className="block text-sm text-gray-900 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400 transition-colors font-medium py-2"
                   onClick={() => setIsOpen(false)}
                 >
                   {item.name}

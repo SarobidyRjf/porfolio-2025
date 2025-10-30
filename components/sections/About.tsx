@@ -28,7 +28,7 @@ const features = [
 
 export function About() {
   return (
-    <section id="about" className="py-16 px-6 sm:px-10 lg:px-14 bg-gray-50 dark:bg-dark-900">
+    <section id="about" className="py-16 px-6 sm:px-10 lg:px-14 relative">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -92,9 +92,9 @@ export function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="p-4 bg-white dark:bg-dark-800 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 group"
+                className="p-4 vintage-card rounded-xl shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 group"
               >
-                <div className="w-9 h-9 bg-gradient-to-r from-primary-500 to-purple-500 rounded-lg flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
+                <div className="w-9 h-9 bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
                   <feature.icon className="w-4 h-4 text-white" />
                 </div>
                 <h3 className="text-sm font-semibold mb-1.5 text-gray-900 dark:text-white">
