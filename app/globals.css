@@ -8,6 +8,7 @@
     --foreground: 222.2 84% 4.9%;
     --font-space-grotesk: 'Space Grotesk', sans-serif;
     --font-inter: 'Inter', sans-serif;
+    --font-signature: 'Comic Neue', cursive;
   }
 
   .dark {
@@ -24,12 +25,12 @@
     font-family: var(--font-inter), system-ui, sans-serif;
     font-feature-settings: "rlig" 1, "calt" 1;
     transition: background-color 0.3s ease, color 0.3s ease;
-    background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 25%, #2a2a2a 50%, #1a1a1a 75%, #0a0a0a 100%);
     position: relative;
   }
 
   html.light body {
-    background: #ffffff;
+    background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 25%, #fafafa 50%, #ffffff 75%, #f5f5f5 100%);
   }
 
   body::before {
@@ -40,33 +41,30 @@
     right: 0;
     bottom: 0;
     background-image: 
-      linear-gradient(rgba(59, 130, 246, 0.05) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(59, 130, 246, 0.05) 1px, transparent 1px);
-    background-size: 40px 40px;
+      radial-gradient(circle, rgba(255, 255, 255, 0.15) 1px, transparent 1px),
+      radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+      radial-gradient(circle, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+    background-size: 80px 80px, 120px 120px, 160px 160px;
+    background-position: 0 0, 40px 40px, 80px 80px;
     pointer-events: none;
     z-index: 0;
+    animation: floatingDots 20s linear infinite;
   }
 
   html.light body::before {
     background-image: 
-      linear-gradient(rgba(59, 130, 246, 0.08) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(59, 130, 246, 0.08) 1px, transparent 1px);
+      radial-gradient(circle, rgba(0, 0, 0, 0.15) 1px, transparent 1px),
+      radial-gradient(circle, rgba(0, 0, 0, 0.12) 1px, transparent 1px),
+      radial-gradient(circle, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
   }
 
-  body::after {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.03) 0%, transparent 50%);
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  html.light body::after {
-    background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.05) 0%, transparent 50%);
+  @keyframes floatingDots {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-80px);
+    }
   }
 
   @keyframes borderPulse {
@@ -83,8 +81,16 @@
     transition-timing-function: ease;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1 {
+    font-family: var(--font-signature), cursive;
+  }
+
+  h2, h3, h4, h5, h6 {
     font-family: var(--font-space-grotesk), system-ui, sans-serif;
+  }
+
+  p, span, a, button {
+    font-family: var(--font-inter), system-ui, sans-serif;
   }
 }
 
@@ -94,12 +100,12 @@
   }
 
   .gradient-text {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-gray-600 via-gray-700 to-[#444] dark:from-gray-300 dark:via-gray-100 dark:to-white;
   }
 
   .gradient-border {
     position: relative;
-    background: linear-gradient(90deg, #3b82f6, #60a5fa, #2563eb);
+    background: linear-gradient(90deg, #444444, #666666, #444444);
     background-size: 200% 200%;
     animation: gradient 8s ease infinite;
   }
@@ -124,10 +130,10 @@
 
   html.light .vintage-card {
     background: rgba(255, 255, 255, 0.7);
-    border: 2px solid rgba(59, 130, 246, 0.2);
+    border: 2px solid rgba(68, 68, 68, 0.15);
     box-shadow: 
-      0 0 20px rgba(59, 130, 246, 0.1),
-      inset 0 0 20px rgba(59, 130, 246, 0.05);
+      0 0 20px rgba(68, 68, 68, 0.08),
+      inset 0 0 20px rgba(68, 68, 68, 0.03);
   }
 
   .vintage-card::before {
@@ -138,9 +144,9 @@
     right: -2px;
     bottom: -2px;
     background: linear-gradient(45deg, 
-      rgba(59, 130, 246, 0.3) 0%, 
+      rgba(68, 68, 68, 0.3) 0%, 
       transparent 50%, 
-      rgba(59, 130, 246, 0.3) 100%);
+      rgba(68, 68, 68, 0.3) 100%);
     border-radius: inherit;
     z-index: -1;
     opacity: 0;
@@ -167,11 +173,11 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-primary-500 rounded-full;
+  @apply bg-[#444] dark:bg-gray-200 rounded-full;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-primary-600;
+  @apply bg-[#555] dark:bg-gray-300;
 }
 
 /* Smooth scroll */
@@ -181,5 +187,5 @@ html {
 
 /* Selection */
 ::selection {
-  @apply bg-primary-500 text-white;
+  @apply bg-[#444] dark:bg-gray-200 text-white dark:text-[#444];
 }

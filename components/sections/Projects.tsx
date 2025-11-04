@@ -57,16 +57,17 @@ const projects = [
 
 export function Projects() {
   return (
-    <section id="projects" className="py-16 px-6 sm:px-10 lg:px-14 relative">
-      <div className="max-w-7xl mx-auto">
+    <section id="projects" className="py-8 px-6 sm:px-10 lg:px-14">
+      <div className="max-w-4xl mx-auto">
+        {/* Titre en haut */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-8"
         >
-          <h2 className="text-2xl sm:text-3xl font-bold mb-2">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-2" style={{ fontFamily: 'var(--font-signature)' }}>
             Ce que j&apos;ai <span className="gradient-text">créé</span>
           </h2>
           <p className="text-sm text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
@@ -74,92 +75,77 @@ export function Projects() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Liste de projets */}
+        <div className="space-y-3">
           {projects.map((project, index) => (
-            <motion.div
+            <motion.a
               key={project.title}
-              initial={{ opacity: 0, y: 50 }}
+              href={project.demo}
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="group vintage-card rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105"
+              className="group block vintage-card rounded-lg p-3 hover:shadow-md transition-all duration-300 hover:border-[#444] dark:hover:border-gray-200"
             >
-              {/* Image */}
-              <div className="relative h-48 overflow-hidden">
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  className="object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                
-                {/* Overlay buttons */}
-                <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2 bg-white dark:bg-dark-800 rounded-full hover:bg-primary-500 hover:text-white transition-colors duration-300"
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    <Github className="w-4 h-4" />
-                  </a>
-                  <a
-                    href={project.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2 bg-white dark:bg-dark-800 rounded-full hover:bg-primary-500 hover:text-white transition-colors duration-300"
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    <ExternalLink className="w-4 h-4" />
-                  </a>
+              <div className="flex items-start gap-3">
+                {/* Image miniature */}
+                <div className="relative w-16 h-16 flex-shrink-0 rounded overflow-hidden">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-300"
+                  />
+                </div>
+
+                {/* Contenu */}
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-start justify-between gap-2">
+                    <h3 className="text-sm font-bold text-gray-900 dark:text-white group-hover:text-[#444] dark:group-hover:text-gray-200 transition-colors">
+                      {project.title}
+                    </h3>
+                    <div className="flex gap-1.5 flex-shrink-0">
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-1 hover:text-[#444] dark:hover:text-gray-200 transition-colors"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <Github className="w-3.5 h-3.5" />
+                      </a>
+                      <a
+                        href={project.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-1 hover:text-[#444] dark:hover:text-gray-200 transition-colors"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <ExternalLink className="w-3.5 h-3.5" />
+                      </a>
+                    </div>
+                  </div>
+                  <p className="text-[11px] text-gray-600 dark:text-gray-400 mt-1 line-clamp-2">
+                    {project.description}
+                  </p>
+                  {/* Tags */}
+                  <div className="flex flex-wrap gap-1 mt-2">
+                    {project.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-1.5 py-0.5 text-[9px] font-medium bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
-
-              {/* Content */}
-              <div className="p-4">
-                <h3 className="text-base font-bold mb-1.5 text-gray-900 dark:text-white group-hover:text-primary-500 transition-colors">
-                  {project.title}
-                </h3>
-                <p className="text-xs text-gray-600 dark:text-gray-400 mb-3 line-clamp-3">
-                  {project.description}
-                </p>
-
-                {/* Tags */}
-                <div className="flex flex-wrap gap-1.5">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-2 py-0.5 text-[10px] font-medium bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 rounded-full"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
+            </motion.a>
           ))}
         </div>
-
-        {/* View More */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.6 }}
-          className="text-center mt-12"
-        >
-          <a
-            href="https://github.com/votre-username"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white text-xs font-semibold rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-blue-500/30"
-          >
-            <Github className="w-4 h-4" />
-            Voir plus sur GitHub
-          </a>
-        </motion.div>
       </div>
     </section>
   );

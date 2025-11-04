@@ -46,12 +46,11 @@ export function ThemeToggle() {
     <div className="relative theme-toggle-wrapper">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="relative p-2.5 rounded-lg bg-gradient-to-r from-blue-500 via-blue-600 to-cyan-500 hover:from-blue-600 hover:via-blue-700 hover:to-cyan-600 transition-all duration-300 hover:scale-105 group flex items-center gap-1.5 shadow-lg shadow-blue-500/30"
+        className="relative p-2.5 rounded-lg bg-[#444] dark:bg-gray-200 hover:bg-[#555] dark:hover:bg-gray-300 transition-all duration-300 hover:scale-105 group flex items-center gap-1.5 shadow-lg"
         aria-label="Toggle theme menu"
       >
-        <CurrentIcon className="w-4 h-4 text-white" />
-        <ChevronDown className={`w-3 h-3 text-white transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
-        <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-blue-500 via-blue-600 to-cyan-500 blur-lg opacity-50 group-hover:opacity-75 transition-opacity -z-10"></div>
+        <CurrentIcon className="w-4 h-4 text-white dark:text-[#444]" />
+        <ChevronDown className={`w-3 h-3 text-white dark:text-[#444] transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
       </button>
 
       <AnimatePresence>
@@ -76,8 +75,8 @@ export function ThemeToggle() {
                   }}
                   className={`w-full flex items-center gap-3 px-3 py-2.5 text-sm transition-colors ${
                     isActive
-                      ? 'bg-primary-50 dark:bg-primary-900/20 text-primary-600 dark:text-primary-400'
-                      : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-dark-700'
+                      ? 'bg-gray-100 dark:bg-gray-700 text-[#444] dark:text-gray-200'
+                      : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
                   }`}
                 >
                   <Icon className="w-4 h-4" />
@@ -85,7 +84,7 @@ export function ThemeToggle() {
                   {isActive && (
                     <motion.div
                       layoutId="active-theme"
-                      className="ml-auto w-1.5 h-1.5 rounded-full bg-primary-500"
+                      className="ml-auto w-1.5 h-1.5 rounded-full bg-[#444] dark:bg-gray-200"
                     />
                   )}
                 </button>

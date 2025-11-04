@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown } from "lucide-react";
 import { 
   SiReact, 
   SiVuedotjs, 
@@ -29,7 +28,7 @@ import {
   SiLinux, 
   SiFigma
 } from "react-icons/si";
-import { Code2 } from "lucide-react";
+import { Code2, ChevronDown } from "lucide-react";
 import type { IconType } from "react-icons";
 
 interface Skill {
@@ -86,27 +85,17 @@ const skillCategories: { category: string; skills: Skill[] }[] = [
 ];
 
 export function Skills() {
-  const [openCategories, setOpenCategories] = useState<number[]>([0, 1, 2, 3]);
-
-  const toggleCategory = (index: number) => {
-    setOpenCategories(prev => 
-      prev.includes(index) 
-        ? prev.filter(i => i !== index)
-        : [...prev, index]
-    );
-  };
-
   return (
-    <section id="skills" className="py-16 px-6 sm:px-10 lg:px-14">
-      <div className="max-w-7xl mx-auto">
+    <section id="skills" className="py-8 px-6 sm:px-10 lg:px-14">
+      <div className="max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-8"
         >
-          <h2 className="text-2xl sm:text-3xl font-bold mb-2">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-2" style={{ fontFamily: 'var(--font-signature)' }}>
             Je <span className="gradient-text">dev</span> en :
           </h2>
           <p className="text-sm text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
@@ -114,48 +103,21 @@ export function Skills() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {skillCategories.map((category, categoryIndex) => {
-            const isOpen = openCategories.includes(categoryIndex);
-            
-            return (
-              <motion.div
-                key={category.category}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: categoryIndex * 0.15 }}
-                className="vintage-card rounded-xl p-4 hover:border-primary-500 transition-all duration-300 relative"
-                style={{ zIndex: 1 }}
-              >
-                <button
-                  onClick={() => toggleCategory(categoryIndex)}
-                  className="w-full flex items-center justify-between mb-4 text-left group"
-                >
-                  <h3 className="text-base font-bold text-gray-900 dark:text-white group-hover:text-primary-500 transition-colors">
-                    {category.category}
-                  </h3>
-                  <ChevronDown 
-                    className={`w-5 h-5 text-gray-600 dark:text-gray-400 transition-transform duration-300 ${
-                      isOpen ? 'rotate-180' : ''
-                    }`}
-                  />
-                </button>
-                
-                <AnimatePresence initial={false}>
-                  {isOpen && (
-                    <motion.div
-                      key={`category-${categoryIndex}`}
-                      initial={{ height: 0, opacity: 0, marginTop: 0 }}
-                      animate={{ height: 'auto', opacity: 1, marginTop: 0 }}
-                      exit={{ height: 0, opacity: 0, marginTop: 0 }}
-                      transition={{ 
-                        duration: 0.25,
-                        ease: [0.4, 0.0, 0.2, 1]
-                      }}
-                      className="overflow-hidden"
-                    >
-                      <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {skillCategories.map((category, categoryIndex) => (
+            <motion.div
+              key={category.category}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: categoryIndex * 0.15 }}
+              className="space-y-3"
+            >
+              <h3 className="text-lg font-bold text-gray-900 dark:text-white">
+                {category.category}
+              </h3>
+              
+              <div className="space-y-2">
                 {category.skills.map((skill, skillIndex) => (
                   <motion.a
                     key={skill.name}
@@ -165,32 +127,22 @@ export function Skills() {
                     initial={{ opacity: 0, scale: 0.8 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
-                    whileHover={{ scale: 1.05, y: -5 }}
-                    transition={{ delay: categoryIndex * 0.15 + skillIndex * 0.05 }}
-                    className="group relative flex flex-col items-center justify-center p-3 vintage-card rounded-lg hover:border-primary-500 transition-all duration-300 cursor-pointer hover:z-[10000]"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ delay: categoryIndex * 0.1 + skillIndex * 0.05 }}
+                    className="group relative flex items-center gap-2 px-3 py-2 vintage-card rounded-lg hover:border-[#444] dark:hover:border-gray-200 transition-all duration-300 cursor-pointer w-full"
                   >
                     <skill.icon 
-                      className="w-5 h-5 mb-1 transition-transform duration-300 group-hover:scale-110" 
+                      className="w-4 h-4 transition-transform duration-300 group-hover:scale-110" 
                       style={{ color: skill.color }}
                     />
-                    <span className="text-[10px] font-semibold text-gray-700 dark:text-gray-300 text-center">
+                    <span className="text-xs font-semibold text-gray-700 dark:text-gray-300">
                       {skill.name}
                     </span>
-                    
-                    {/* Tooltip */}
-                    <div className="absolute -bottom-12 left-1/2 -translate-x-1/2 bg-gray-900 dark:bg-gray-800 text-white px-3 py-1.5 rounded-lg text-xs opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-[10001] shadow-xl">
-                      {skill.description}
-                      <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-gray-900 rotate-45"></div>
-                    </div>
                   </motion.a>
                 ))}
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.div>
-            );
-          })}
+              </div>
+            </motion.div>
+          ))}
         </div>
 
         {/* Soft Skills */}
@@ -222,7 +174,7 @@ export function Skills() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.05 }}
                 whileHover={{ scale: 1.05 }}
-                className="px-3 py-1.5 text-xs bg-gradient-to-r from-blue-500 to-blue-600 text-white font-medium rounded-full shadow-md hover:shadow-lg hover:shadow-blue-500/30 transition-all duration-300 cursor-default"
+                className="px-3 py-1.5 text-xs bg-[#444] dark:bg-gray-200 text-white dark:text-[#444] font-medium rounded-full shadow-md hover:shadow-lg transition-all duration-300 cursor-default"
               >
                 {skill}
               </motion.span>

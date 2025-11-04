@@ -6,16 +6,11 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative bg-black/40 backdrop-blur-sm border-t border-white/10 py-6">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col items-center justify-center space-y-2">
-          <p className="text-sm text-gray-600 dark:text-gray-400 text-center flex items-center gap-2">
-            Créé avec <Heart className="w-3 h-3 text-primary-500 fill-primary-500 animate-pulse" /> par un développeur passionné
-          </p>
-          <p className="text-xs text-gray-500 dark:text-gray-500">
-            © {currentYear} Portfolio. Tous droits réservés.
-          </p>
-        </div>
+    <footer className="relative border-t border-gray-200 dark:border-gray-800 py-3 px-6 sm:px-10 lg:px-14">
+      <div className="max-w-4xl mx-auto">
+        <p className="text-[10px] text-center text-gray-500 dark:text-gray-500">
+          © {currentYear} Portfolio. Créé avec <Heart className="w-2.5 h-2.5 inline text-primary-500 fill-primary-500" /> par un développeur passionné
+        </p>
       </div>
     </footer>
   );
