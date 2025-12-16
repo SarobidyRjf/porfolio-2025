@@ -9,6 +9,9 @@
     --font-space-grotesk: 'Space Grotesk', sans-serif;
     --font-inter: 'Inter', sans-serif;
     --font-signature: 'Comic Neue', cursive;
+    --font-playfair: 'Playfair Display', serif;
+    --font-quicksand: 'Quicksand', sans-serif;
+    --carbon-black: #333333;
   }
 
   .dark {
@@ -20,19 +23,37 @@
     @apply border-gray-200 dark:border-gray-800;
   }
 
+  /* Mode clair (par défaut) - Marbre blanc adouci */
   body {
-    @apply text-gray-900 dark:text-gray-100;
-    font-family: var(--font-inter), system-ui, sans-serif;
+    @apply text-gray-900;
+    font-family: var(--font-quicksand), system-ui, sans-serif;
     font-feature-settings: "rlig" 1, "calt" 1;
     transition: background-color 0.3s ease, color 0.3s ease;
-    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 25%, #2a2a2a 50%, #1a1a1a 75%, #0a0a0a 100%);
+    background:
+      linear-gradient(110deg, transparent 30%, rgba(235, 235, 235, 0.3) 50%, transparent 70%),
+      linear-gradient(245deg, rgba(248, 248, 248, 0.4) 0%, transparent 40%),
+      linear-gradient(175deg, transparent 60%, rgba(240, 240, 240, 0.35) 100%),
+      radial-gradient(ellipse at 20% 30%, rgba(245, 245, 245, 0.5) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 70%, rgba(250, 250, 250, 0.45) 0%, transparent 50%),
+      linear-gradient(135deg, #fafafa 0%, #ffffff 25%, #fcfcfc 50%, #ffffff 75%, #fafafa 100%);
+    background-size: 200% 200%, 100% 100%, 100% 100%, 150% 150%, 150% 150%, 100% 100%;
     position: relative;
   }
 
-  html.light body {
-    background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 25%, #fafafa 50%, #ffffff 75%, #f5f5f5 100%);
+  /* Mode sombre - Marbre noir adouci */
+  .dark body {
+    @apply text-gray-100;
+    background:
+      linear-gradient(110deg, transparent 30%, rgba(30, 30, 30, 0.2) 50%, transparent 70%),
+      linear-gradient(245deg, rgba(15, 15, 15, 0.3) 0%, transparent 40%),
+      linear-gradient(175deg, transparent 60%, rgba(25, 25, 25, 0.25) 100%),
+      radial-gradient(ellipse at 20% 30%, rgba(20, 20, 20, 0.4) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 70%, rgba(18, 18, 18, 0.35) 0%, transparent 50%),
+      linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 25%, #121212 50%, #1c1c1c 75%, #0f0f0f 100%);
+    background-size: 200% 200%, 100% 100%, 100% 100%, 150% 150%, 150% 150%, 100% 100%;
   }
 
+  /* Veines de marbre adoucies - Mode clair */
   body::before {
     content: '';
     position: fixed;
@@ -40,36 +61,46 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: 
-      radial-gradient(circle, rgba(255, 255, 255, 0.15) 1px, transparent 1px),
-      radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
-      radial-gradient(circle, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
-    background-size: 80px 80px, 120px 120px, 160px 160px;
-    background-position: 0 0, 40px 40px, 80px 80px;
+    background-image:
+      linear-gradient(125deg, transparent 0%, transparent 46%, rgba(200, 200, 200, 0.02) 48%, rgba(180, 180, 180, 0.04) 50%, rgba(200, 200, 200, 0.02) 52%, transparent 54%, transparent 100%),
+      linear-gradient(75deg, transparent 0%, transparent 44%, rgba(210, 210, 210, 0.015) 47%, rgba(190, 190, 190, 0.03) 50%, rgba(210, 210, 210, 0.015) 53%, transparent 56%, transparent 100%),
+      linear-gradient(200deg, transparent 0%, transparent 42%, rgba(205, 205, 205, 0.015) 46%, rgba(195, 195, 195, 0.025) 50%, rgba(205, 205, 205, 0.015) 54%, transparent 58%, transparent 100%);
+    background-size: 1000px 1000px, 800px 800px, 1200px 1200px;
+    background-position: 0 0, 250px 150px, 500px 350px;
     pointer-events: none;
     z-index: 0;
-    animation: floatingDots 20s linear infinite;
+    opacity: 0.3;
   }
 
-  html.light body::before {
-    background-image: 
-      radial-gradient(circle, rgba(0, 0, 0, 0.15) 1px, transparent 1px),
-      radial-gradient(circle, rgba(0, 0, 0, 0.12) 1px, transparent 1px),
-      radial-gradient(circle, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+  /* Veines de marbre adoucies - Mode sombre */
+  .dark body::before {
+    background-image:
+      linear-gradient(125deg, transparent 0%, transparent 46%, rgba(255, 255, 255, 0.015) 48%, rgba(255, 255, 255, 0.03) 50%, rgba(255, 255, 255, 0.015) 52%, transparent 54%, transparent 100%),
+      linear-gradient(75deg, transparent 0%, transparent 44%, rgba(255, 255, 255, 0.01) 47%, rgba(255, 255, 255, 0.025) 50%, rgba(255, 255, 255, 0.01) 53%, transparent 56%, transparent 100%),
+      linear-gradient(200deg, transparent 0%, transparent 42%, rgba(255, 255, 255, 0.01) 46%, rgba(255, 255, 255, 0.02) 50%, rgba(255, 255, 255, 0.01) 54%, transparent 58%, transparent 100%);
+    opacity: 0.4;
   }
 
   @keyframes floatingDots {
     0% {
       transform: translateY(0);
     }
+
     100% {
       transform: translateY(-80px);
     }
   }
 
   @keyframes borderPulse {
-    0%, 100% { opacity: 0.3; }
-    50% { opacity: 0.6; }
+
+    0%,
+    100% {
+      opacity: 0.3;
+    }
+
+    50% {
+      opacity: 0.6;
+    }
   }
 
   /* Smooth theme transitions */
@@ -82,15 +113,36 @@
   }
 
   h1 {
-    font-family: var(--font-signature), cursive;
+    font-family: var(--font-playfair), serif;
   }
 
-  h2, h3, h4, h5, h6 {
-    font-family: var(--font-space-grotesk), system-ui, sans-serif;
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-playfair), serif;
   }
 
-  p, span, a, button {
-    font-family: var(--font-inter), system-ui, sans-serif;
+  p,
+  span,
+  a,
+  button {
+    font-family: var(--font-quicksand), sans-serif;
+  }
+
+  /* Carbon black pour les textes en mode clair */
+  html.light h1,
+  html.light h2,
+  html.light h3,
+  html.light h4,
+  html.light h5,
+  html.light h6,
+  html.light p,
+  html.light span:not(.gradient-text),
+  html.light a,
+  html.light button {
+    color: var(--carbon-black);
   }
 }
 
@@ -121,7 +173,7 @@
   .vintage-card {
     background: rgba(26, 26, 26, 0.8);
     border: 2px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 
+    box-shadow:
       0 0 20px rgba(255, 255, 255, 0.05),
       inset 0 0 20px rgba(255, 255, 255, 0.02);
     backdrop-filter: blur(10px);
@@ -131,7 +183,7 @@
   html.light .vintage-card {
     background: rgba(255, 255, 255, 0.7);
     border: 2px solid rgba(68, 68, 68, 0.15);
-    box-shadow: 
+    box-shadow:
       0 0 20px rgba(68, 68, 68, 0.08),
       inset 0 0 20px rgba(68, 68, 68, 0.03);
   }
@@ -143,10 +195,10 @@
     left: -2px;
     right: -2px;
     bottom: -2px;
-    background: linear-gradient(45deg, 
-      rgba(68, 68, 68, 0.3) 0%, 
-      transparent 50%, 
-      rgba(68, 68, 68, 0.3) 100%);
+    background: linear-gradient(45deg,
+        rgba(68, 68, 68, 0.3) 0%,
+        transparent 50%,
+        rgba(68, 68, 68, 0.3) 100%);
     border-radius: inherit;
     z-index: -1;
     opacity: 0;

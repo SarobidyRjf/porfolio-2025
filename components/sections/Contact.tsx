@@ -2,8 +2,10 @@
 
 import { motion } from "framer-motion";
 import { Mail, Phone, Github, Linkedin, MessageSquare } from "lucide-react";
+import { useLanguage } from "../ThemeProvider";
 
 export function Contact() {
+  const { t } = useLanguage();
 
   return (
     <section id="contact" className="py-8 px-6 sm:px-10 lg:px-14">
@@ -16,11 +18,11 @@ export function Contact() {
           transition={{ duration: 0.6 }}
           className="text-center mb-8"
         >
-          <h2 className="text-2xl sm:text-3xl font-bold mb-2" style={{ fontFamily: 'var(--font-signature)' }}>
-            <span className="gradient-text">Contact</span>
+          <h2 className="text-2xl sm:text-3xl font-bold mb-2" style={{ fontFamily: 'var(--font-playfair)' }}>
+            <span className="gradient-text">{t("contactTitle")}</span>
           </h2>
           <p className="text-sm text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Restons connectés
+            {t("contactSubtitle")}
           </p>
         </motion.div>
 

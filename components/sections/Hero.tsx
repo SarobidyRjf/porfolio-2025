@@ -3,8 +3,11 @@
 import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import Image from "next/image";
+import { useLanguage } from "../ThemeProvider";
 
 export function Hero() {
+  const { t } = useLanguage();
+  
   return (
     <section id="home" className="min-h-[60vh] flex items-center justify-center pt-8 pb-8 px-6 sm:px-10 lg:px-14">
       <div className="max-w-4xl mx-auto w-full">
@@ -26,7 +29,7 @@ export function Hero() {
               <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-[#444] dark:border-gray-200 shadow-lg">
                 <Image
                   src="/nika.png"
-                  alt="Precieux"
+                  alt="Sarobidy"
                   fill
                   className="object-cover object-center"
                   priority
@@ -44,11 +47,11 @@ export function Hero() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.3 }}
             >
-              <h1 className="text-3xl sm:text-4xl font-bold text-white dark:text-white mb-1" style={{ fontFamily: 'var(--font-signature)' }}>
-                Precieux
+              <h1 className="text-3xl sm:text-4xl font-bold text-black dark:text-white mb-1" style={{ fontFamily: 'var(--font-playfair)' }}>
+                {t("name")}
               </h1>
-              <h2 className="text-base sm:text-lg text-white dark:text-white" style={{ fontFamily: 'var(--font-space-grotesk)' }}>
-                AI Coder & Full Stack Dev
+              <h2 className="text-base sm:text-lg text-black dark:text-white" style={{ fontFamily: 'var(--font-quicksand)' }}>
+                {t("title")}
               </h2>
             </motion.div>
 
@@ -58,9 +61,9 @@ export function Hero() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.4 }}
               className="text-sm sm:text-base text-gray-600 dark:text-gray-400 leading-relaxed"
-              style={{ fontFamily: 'var(--font-space-grotesk)' }}
+              style={{ fontFamily: 'var(--font-quicksand)' }}
             >
-              Développeur junior polyvalent et autonome, je ne suis pas qu&apos;un simple codeur — je suis un AI Coder qui maîtrise l&apos;art de fusionner intelligence artificielle et développement moderne.
+              {t("bio")}
             </motion.p>
 
             {/* Social Links */}
@@ -74,43 +77,43 @@ export function Hero() {
                 href="https://linkedin.com/in/votre-profil"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-3 py-1.5 bg-[#444] dark:bg-gray-200 hover:bg-[#555] dark:hover:bg-gray-300 text-white dark:text-[#444] text-xs font-medium rounded-md transition-all duration-200"
+                className="px-3 py-1.5 bg-[#444] dark:bg-gray-200 hover:bg-[#555] dark:hover:bg-gray-300 text-white dark:text-[#333] text-xs font-medium rounded-md transition-all duration-200 !text-white dark:!text-[#333]"
               >
-                LinkedIn
+                {t("linkedin")}
               </a>
 
               <a
                 href="https://github.com/votre-username"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-3 py-1.5 bg-[#444] dark:bg-gray-200 hover:bg-[#555] dark:hover:bg-gray-300 text-white dark:text-[#444] text-xs font-medium rounded-md transition-all duration-200"
+                className="px-3 py-1.5 bg-[#444] dark:bg-gray-200 hover:bg-[#555] dark:hover:bg-gray-300 text-white dark:text-[#333] text-xs font-medium rounded-md transition-all duration-200 !text-white dark:!text-[#333]"
               >
-                GitHub
+                {t("github")}
               </a>
 
               <a
                 href="mailto:votre.email@example.com"
-                className="px-3 py-1.5 bg-[#444] dark:bg-gray-200 hover:bg-[#555] dark:hover:bg-gray-300 text-white dark:text-[#444] text-xs font-medium rounded-md transition-all duration-200"
+                className="px-3 py-1.5 bg-[#444] dark:bg-gray-200 hover:bg-[#555] dark:hover:bg-gray-300 text-white dark:text-[#333] text-xs font-medium rounded-md transition-all duration-200 !text-white dark:!text-[#333]"
               >
-                Email
+                {t("email")}
               </a>
 
               <a
                 href="https://wa.me/33612345678"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-3 py-1.5 bg-[#444] dark:bg-gray-200 hover:bg-[#555] dark:hover:bg-gray-300 text-white dark:text-[#444] text-xs font-medium rounded-md transition-all duration-200"
+                className="px-3 py-1.5 bg-[#444] dark:bg-gray-200 hover:bg-[#555] dark:hover:bg-gray-300 text-white dark:text-[#333] text-xs font-medium rounded-md transition-all duration-200 !text-white dark:!text-[#333]"
               >
-                WhatsApp
+                {t("whatsapp")}
               </a>
 
               <a
                 href="https://discord.com/users/votre-id"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-3 py-1.5 bg-[#444] dark:bg-gray-200 hover:bg-[#555] dark:hover:bg-gray-300 text-white dark:text-[#444] text-xs font-medium rounded-md transition-all duration-200"
+                className="px-3 py-1.5 bg-[#444] dark:bg-gray-200 hover:bg-[#555] dark:hover:bg-gray-300 text-white dark:text-[#333] text-xs font-medium rounded-md transition-all duration-200 !text-white dark:!text-[#333]"
               >
-                Discord
+                {t("discord")}
               </a>
             </motion.div>
           </div>

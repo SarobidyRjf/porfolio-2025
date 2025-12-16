@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Inter, Comic_Neue } from "next/font/google";
+import { Space_Grotesk, Inter, Comic_Neue, Playfair_Display, Quicksand } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/ThemeProvider";
+import { ThemeProvider, LanguageProvider } from "@/components/ThemeProvider";
 
 const spaceGrotesk = Space_Grotesk({ 
   subsets: ["latin"],
@@ -19,6 +19,18 @@ const comicNeue = Comic_Neue({
   weight: ["400", "700"],
   subsets: ["latin"],
   variable: "--font-signature",
+  display: "swap",
+});
+
+const playfairDisplay = Playfair_Display({ 
+  subsets: ["latin"],
+  variable: "--font-playfair",
+  display: "swap",
+});
+
+const quicksand = Quicksand({ 
+  subsets: ["latin"],
+  variable: "--font-quicksand",
   display: "swap",
 });
 
@@ -41,13 +53,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr" suppressHydrationWarning>
-      <body className={`${inter.variable} ${spaceGrotesk.variable} ${comicNeue.variable} font-sans antialiased`}>
+      <body className={`${inter.variable} ${spaceGrotesk.variable} ${comicNeue.variable} ${playfairDisplay.variable} ${quicksand.variable} font-sans antialiased`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
         >
-          {children}
+          <LanguageProvider>
+            {children}
+          </LanguageProvider>
         </ThemeProvider>
       </body>
     </html>

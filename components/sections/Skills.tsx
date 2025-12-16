@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLanguage } from "../ThemeProvider";
 import { 
   SiReact, 
   SiVuedotjs, 
@@ -85,6 +86,8 @@ const skillCategories: { category: string; skills: Skill[] }[] = [
 ];
 
 export function Skills() {
+  const { t } = useLanguage();
+  
   return (
     <section id="skills" className="py-8 px-6 sm:px-10 lg:px-14">
       <div className="max-w-4xl mx-auto">
@@ -95,11 +98,11 @@ export function Skills() {
           transition={{ duration: 0.6 }}
           className="text-center mb-8"
         >
-          <h2 className="text-2xl sm:text-3xl font-bold mb-2" style={{ fontFamily: 'var(--font-signature)' }}>
-            Je <span className="gradient-text">dev</span> en :
+          <h2 className="text-2xl sm:text-3xl font-bold mb-2" style={{ fontFamily: 'var(--font-playfair)' }}>
+            {t("skillsTitle")} <span className="gradient-text">{t("skillsTitleHighlight")}</span> {t("skillsTitleEnd")}
           </h2>
           <p className="text-sm text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Stack technique moderne pour des solutions web performantes
+            {t("skillsSubtitle")}
           </p>
         </motion.div>
 
@@ -154,7 +157,7 @@ export function Skills() {
           className="mt-12"
         >
           <h3 className="text-base font-bold text-center mb-4 text-gray-900 dark:text-white">
-            Compétences transversales
+            {t("softSkills")}
           </h3>
           <div className="flex flex-wrap justify-center gap-2">
             {[
@@ -174,7 +177,7 @@ export function Skills() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.05 }}
                 whileHover={{ scale: 1.05 }}
-                className="px-3 py-1.5 text-xs bg-[#444] dark:bg-gray-200 text-white dark:text-[#444] font-medium rounded-full shadow-md hover:shadow-lg transition-all duration-300 cursor-default"
+                className="px-3 py-1.5 text-xs bg-[#444] dark:bg-gray-200 text-white dark:text-[#333] font-medium rounded-full shadow-md hover:shadow-lg transition-all duration-300 cursor-default !text-white dark:!text-[#333]"
               >
                 {skill}
               </motion.span>
